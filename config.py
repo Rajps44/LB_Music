@@ -8,7 +8,7 @@ from pyrogram import filters
 load_dotenv()
 
 # Get this value from my.telegram.org/apps
-API_ID = int(getenv("API_ID", 29013900))
+API_ID = int(getenv("API_ID", "29013900"))
 API_HASH = getenv("API_HASH", "b95a8d339e5e8ae771fd59b920d7cbd7")
 
 # Get your token from @BotFather on Telegram.
@@ -22,8 +22,8 @@ PRIVATE_BOT_MODE = getenv("PRIVATE_BOT_MODE", None)
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 900))
 
 # Chat id of a group for logging bot's activities
-LOGGER_ID = int(getenv("LOGGER_ID", -1002192763590))
-LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", -1002183671823))
+LOGGER_ID = int(getenv("LOGGER_ID", "-1002192763590"))
+LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-1002183671823"))
 
 # Get this value Telegram id
 OWNER_ID = int(getenv("OWNER_ID", "6174868004"))
