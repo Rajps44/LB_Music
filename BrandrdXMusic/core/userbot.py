@@ -12,9 +12,9 @@ from dotenv import load_dotenv
 from strings.__init__ import LOGGERS
 from ..logging import LOGGER
 
-BOT_TOKEN = getenv("BOT_TOKEN", "")
-MONGO_DB_URI = getenv("MONGO_DB_URI", "")
-STRING_SESSION = getenv("STRING_SESSION", "")
+BOT_TOKEN = getenv("BOT_TOKEN", "7478730845:AAH_lVW6hmXCfI0vtVrGMb60PhItPyFOI_8")
+MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://RP44:RZoUNws5PGcZroT6@rajps33.a0tsf.mongodb.net/?retryWrites=true&w=majority&appName=Rajps33")
+STRING_SESSION = getenv("STRING_SESSION", "BQG6t4wAKUB6U0sJoISMFvh8g1_f5GDRUjY-lWkITx_WVr1m3Is5VHpNPSq1c9thVxjd-rEGeYjtBHGO7K6wPBxJJop4dR9xyl_rDpBnNsdzg5oiV08uXhsIez8AoM93_H5-9UyffR1eNfpgqcr4BBwWE16mp13yaqqGFkT-d5pxZG5PJ_1E5Ez20xm2e9o5-uML6YJ0Cbw70crPZh0-DigC-PeqRtkoMNC9waSU5hAWwcWrdfxB-HnNBY-GjJtccWB_HyitKyJgWvvxHtGcYwmGoKNAO5eDuletSkCB0ybiGhf-ItAn1snQzvJp9FKJVjj1w_n6OY-aDcUUZJHVxToNGrAyAwAAAAGl_l5UAA")
 
 
 assistants = []
