@@ -18,7 +18,7 @@ def run():
 
 class Hotty(Client):
     def __init__(self):
-        LOGGER(__name__).info(f"Starting Bot...")
+        LOGGER(__name__).info("Starting Bot...")
         super().__init__(
             name="BrandrdXMusic",
             api_id=config.API_ID,
@@ -47,7 +47,6 @@ class Hotty(Client):
             LOGGER(__name__).error(
                 "Bot has failed to access the log group/channel. Make sure that you have added your bot to your log group/channel."
             )
-
         except Exception as ex:
             LOGGER(__name__).error(
                 f"Bot has failed to access the log group/channel.\n  Reason : {type(ex).__name__}."
