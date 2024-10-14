@@ -57,3 +57,4 @@ mpv
 moviepy
 lyricsgenius
 Flask
+gunicorn
