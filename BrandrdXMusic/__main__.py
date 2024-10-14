@@ -14,8 +14,17 @@ from config import BANNED_USERS
 
 from BrandrdXMusic.plugins.tools.clone import restart_bots
 
+
+
+
 async def init():
-    if not any([config.STRING1, config.STRING2, config.STRING3, config.STRING4, config.STRING5]):
+    if (
+        not config.STRING1
+        and not config.STRING2
+        and not config.STRING3
+        and not config.STRING4
+        and not config.STRING5
+    ):
         LOGGER(__name__).error("Assistant client variables not defined, exiting...")
         exit()
     await sudo()
@@ -26,31 +35,32 @@ async def init():
         users = await get_banned_users()
         for user_id in users:
             BANNED_USERS.add(user_id)
-    except Exception as e:
-        LOGGER(__name__).error(f"Failed to load banned users: {e}")
-    
+    except:
+        pass
     await app.start()
     for all_module in ALL_MODULES:
         importlib.import_module("BrandrdXMusic.plugins" + all_module)
     LOGGER("BrandrdXMusic.plugins").info("Successfully Imported Modules...")
-    
     await userbot.start()
     await Hotty.start()
-    
     try:
         await Hotty.stream_call("https://graph.org/file/e999c40cb700e7c684b75.mp4")
     except NoActiveGroupCall:
-        LOGGER("BrandrdXMusic").error("Please turn on the video chat of your log group/channel.\n\nStopping Bot...")
+        LOGGER("BrandrdXMusic").error(
+            "Please turn on the videochat of your log group\channel.\n\nStopping Bot..."
+        )
         exit()
-    except Exception as e:
-        LOGGER(__name__).error(f"Failed to start stream call: {e}")
-
+    except:
+        pass
     await Hotty.decorators()
-    LOGGER("BrandrdXMusic").info("ᴅʀᴏᴘ ʏᴏᴜʀ ɢɪʀʟꜰʀɪᴇɴᴅ'ꜱ ɴᴜᴍʙᴇʀ ᴀᴛ @learningbots79 ᴊᴏɪɴ @LB_Music_Bot , @learning_bots ꜰᴏʀ ᴀɴʏ ɪꜱꜱᴜᴇꜱ")
+    LOGGER("BrandrdXMusic").info(
+        "ᴅʀᴏᴘ ʏᴏᴜʀ ɢɪʀʟꜰʀɪᴇɴᴅ'ꜱ ɴᴜᴍʙᴇʀ ᴀᴛ @learningbots79 ᴊᴏɪɴ @LB_Music_Bot , @learning_bots ꜰᴏʀ ᴀɴʏ ɪꜱꜱᴜᴇꜱ"
+    )
     await idle()
     await app.stop()
     await userbot.stop()
     LOGGER("BrandrdXMusic").info("Stopping Brandrd Music Bot...")
+
 
 if __name__ == "__main__":
     asyncio.get_event_loop().run_until_complete(init())
