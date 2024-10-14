@@ -1,10 +1,20 @@
+from flask import Flask
+from threading import Thread
 from pyrogram import Client, errors
-from pyrogram.enums import ChatMemberStatus, ParseMode
+from pyrogram.enums import ChatMemberStatus
 
 import config
-
 from ..logging import LOGGER
 
+# Web server setup
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "Bot is running!"
+
+def run():
+    app.run(host="0.0.0.0", port=8000)
 
 class Hotty(Client):
     def __init__(self):
@@ -24,6 +34,9 @@ class Hotty(Client):
         self.name = self.me.first_name + " " + (self.me.last_name or "")
         self.username = self.me.username
         self.mention = self.me.mention
+
+        # Start the Flask server in a separate thread
+        Thread(target=run).start()
 
         try:
             await self.send_message(
